@@ -17,5 +17,7 @@ namespace BookReviewWebAppExercsie.Data
         public DbSet<BookReviewWebAppExercsie.Models.Book> Book { get; set; }
 
         public DbSet<BookReviewWebAppExercsie.Models.Author> Author { get; set; }
+
+        public DbSet<BookReviewWebAppExercsie.Models.Review> Review { get; set; }
     }
 }
