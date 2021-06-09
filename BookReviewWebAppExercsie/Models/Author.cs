@@ -5,12 +5,9 @@ using System.Threading.Tasks;
 
 namespace BookReviewWebAppExercsie.Models
 {
-    public class Book
+    public class Author
     {
         public int Id { get; set; }
-        public string Title { get; set; }
-        public string Genre { get; set; }
-        public string Author { get; set; }
-        public DateTime Date { get;  set; }
+        public string Name { get; set; }
     }
 }
