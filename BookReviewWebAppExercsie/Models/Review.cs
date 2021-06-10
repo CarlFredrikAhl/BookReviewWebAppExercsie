@@ -13,8 +13,8 @@ namespace BookReviewWebAppExercsie.Models
         public string Name { get; set; }
         [Required]
         public string TextContent { get; set; }
-        public int? BookId { get; set; }
         [Required]
+        public int? BookId { get; set; }
         public Book Book { get; set; }
     }
 }
