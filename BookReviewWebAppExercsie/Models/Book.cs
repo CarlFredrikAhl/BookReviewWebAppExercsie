@@ -8,7 +8,7 @@ namespace BookReviewWebAppExercsie.Models
 {
     public class Book
     {
-        public int Id { get; set; }
+        public int BookId { get; set; }
         
         [Required]
         public string Title { get; set; }
@@ -16,10 +16,14 @@ namespace BookReviewWebAppExercsie.Models
         [Required]
         public string Genre { get; set; }
 
+        public int? AuthorId { get; set; }
+
         [Required]
-        public string Author { get; set; }
+        public Author Author { get; set; }
 
         [Required]
         public DateTime Date { get;  set; }
+
+        public ICollection<Review> Reviews { get; set; }
     }
 }

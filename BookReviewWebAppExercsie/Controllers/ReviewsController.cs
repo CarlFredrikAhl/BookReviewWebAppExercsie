@@ -34,7 +34,7 @@ namespace BookReviewWebAppExercsie.Controllers
             }
 
             var review = await _context.Review
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.ReviewId == id);
             if (review == null)
             {
                 return NotFound();
@@ -88,7 +88,7 @@ namespace BookReviewWebAppExercsie.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("id,Name,TextContent")] Review review)
         {
-            if (id != review.id)
+            if (id != review.ReviewId)
             {
                 return NotFound();
             }
@@ -102,7 +102,7 @@ namespace BookReviewWebAppExercsie.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ReviewExists(review.id))
+                    if (!ReviewExists(review.ReviewId))
                     {
                         return NotFound();
                     }
@@ -125,7 +125,7 @@ namespace BookReviewWebAppExercsie.Controllers
             }
 
             var review = await _context.Review
-                .FirstOrDefaultAsync(m => m.id == id);
+                .FirstOrDefaultAsync(m => m.ReviewId == id);
             if (review == null)
             {
                 return NotFound();
@@ -147,7 +147,7 @@ namespace BookReviewWebAppExercsie.Controllers
 
         private bool ReviewExists(int id)
         {
-            return _context.Review.Any(e => e.id == id);
+            return _context.Review.Any(e => e.ReviewId == id);
         }
     }
 }

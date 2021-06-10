@@ -19,5 +19,15 @@ namespace BookReviewWebAppExercsie.Data
         public DbSet<BookReviewWebAppExercsie.Models.Author> Author { get; set; }
 
         public DbSet<BookReviewWebAppExercsie.Models.Review> Review { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Author>()
+                .HasMany(c => c.Books)
+                .WithOne(e => e.Author);
+            modelBuilder.Entity<Book>()
+                .HasMany(c => c.Reviews)
+                .WithOne(e => e.Book);
+        }
     }
 }
