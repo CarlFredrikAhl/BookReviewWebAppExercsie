@@ -20,7 +20,9 @@ namespace BookReviewWebAppExercsie.Models
         public Author Author { get; set; }
 
         [Required]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
+
         [Required]
         public string Description { get; set; }
         public ICollection<Review> Reviews { get; set; }
