@@ -16,5 +16,8 @@ namespace BookReviewWebAppExercsie.Models
         [Required]
         public int? BookId { get; set; }
         public Book Book { get; set; }
+
+        [Required]
+        public Decimal Rating { get; set; }
     }
 }

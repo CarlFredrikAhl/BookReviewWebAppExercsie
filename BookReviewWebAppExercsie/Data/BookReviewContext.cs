@@ -68,7 +68,7 @@ namespace BookReviewWebAppExercsie.Data
                 Title = "The Hobbit, or There and Back Again",
                 Genre = "Classics",
                 AuthorId = author1.AuthorId,
-                //Author = author1,
+                Description = "Written for J.R.R. Tolkien’s own children, The Hobbit met with instant critical acclaim when it was first published in 1937. Now recognized as a timeless classic, this introduction to the hobbit Bilbo Baggins, the wizard Gandalf, Gollum, and the spectacular world of Middle-earth recounts of the adventures of a reluctant hero, a powerful and dangerous ring, and the cruel dragon Smaug the Magnificent. The text in this 372-page paperback edition is based on that first published in Great Britain by Collins Modern Classics (1998), and includes a note on the text by Douglas A. Anderson (2001).",
                 Date = new DateTime(2002, 08, 15),
             };
             Book book2 = new Book
@@ -77,7 +77,7 @@ namespace BookReviewWebAppExercsie.Data
                 Title = "Harry Potter and the Sorcerer's Stone",
                 Genre = "Fantasy",
                 AuthorId = author2.AuthorId,
-                //Author = author2,
+                Description = "Full of sympathetic characters, wildly imaginative situations, and countless exciting details, the first installment in the series assembles an unforgettable magical world and sets the stage for many high-stakes adventures to come.",
                 Date = new DateTime(2003, 11, 01),
             };
             Book book3 = new Book
@@ -86,7 +86,7 @@ namespace BookReviewWebAppExercsie.Data
                 Title = "The Girl with the Dragon Tattoo",
                 Genre = "Thriller",
                 AuthorId = author3.AuthorId,
-                //Author = author3,
+                Description = "Harriet Vanger, a scion of one of Sweden’s wealthiest families disappeared over forty years ago. All these years later, her aged uncle continues to seek the truth. He hires Mikael Blomkvist, a crusading journalist recently trapped by a libel conviction, to investigate. He is aided by the pierced and tattooed punk prodigy Lisbeth Salander. Together they tap into a vein of unfathomable iniquity and astonishing corruption.",
                 Date = new DateTime(2008, 09, 16),
             };
             Book book4 = new Book
@@ -95,7 +95,7 @@ namespace BookReviewWebAppExercsie.Data
                 Title = "Gone girl",
                 Genre = "Mystery",
                 AuthorId = author4.AuthorId,
-                //Author = author4,
+                Description = "One of the most critically acclaimed suspense writers of our time, New York Times bestseller Gillian Flynn takes that statement to its darkest place in this unputdownable masterpiece about a marriage gone terribly, terribly wrong. The Chicago Tribune proclaimed that her work “draws you in and keeps you reading with the force of a pure but nasty addiction.” Gone Girl’s toxic mix of sharp-edged wit and deliciously chilling prose creates a nerve-fraying thriller that confounds you at every turn.",
                 Date = new DateTime(2014, 04, 22),
             };
             Book book5 = new Book
@@ -104,7 +104,7 @@ namespace BookReviewWebAppExercsie.Data
                 Title = "The Midnight Library",
                 Genre = "Fantasy",
                 AuthorId = author5.AuthorId,
-                //Author = author5,
+                Description = "Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices . . . Would you have done anything different, if you had the chance to undo your regrets?",
                 Date = new DateTime(2020, 09, 29),
             };
             modelBuilder.Entity<Book>().HasData(book1);
@@ -118,21 +118,21 @@ namespace BookReviewWebAppExercsie.Data
                 ReviewId = 1,
                 Name = "Inge",
                 TextContent = "Cool Story Bro",
-                BookId = book4.BookId
+                BookId = book1.BookId
             };
             Review review2 = new Review
             {
                 ReviewId = 2,
                 Name = "Zoe",
                 TextContent = "I will never ever rate this lower than 5 stars. BEAUTIFUL.",
-                BookId = book4.BookId
+                BookId = book2.BookId
             };
             Review review3 = new Review
             {
                 ReviewId = 3,
                 Name = "Diane Wallace",
                 TextContent = "Loved it! an interesting,mystery filled and very thrill-seeking storyline..was well written,nice movie also... (paperback!)",
-                BookId = book4.BookId
+                BookId = book3.BookId
             };
             Review review4 = new Review
             {
@@ -146,7 +146,7 @@ namespace BookReviewWebAppExercsie.Data
                 ReviewId = 5,
                 Name = "Emily B",
                 TextContent = "This was cute and the concept was great but unfortunately it really lacked some depth for me!",
-                BookId = book4.BookId
+                BookId = book5.BookId
             };
             modelBuilder.Entity<Review>().HasData(review1);
             modelBuilder.Entity<Review>().HasData(review2);

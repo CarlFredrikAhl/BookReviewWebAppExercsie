@@ -4,14 +4,16 @@ using BookReviewWebAppExercsie.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BookReviewWebAppExercsie.Migrations
 {
     [DbContext(typeof(BookReviewContext))]
-    partial class BookReviewContextModelSnapshot : ModelSnapshot
+    [Migration("20210610122403_AddedDescription")]
+    partial class AddedDescription
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -84,9 +86,6 @@ namespace BookReviewWebAppExercsie.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Rating")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -105,7 +104,6 @@ namespace BookReviewWebAppExercsie.Migrations
                             Date = new DateTime(2002, 8, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Written for J.R.R. Tolkien’s own children, The Hobbit met with instant critical acclaim when it was first published in 1937. Now recognized as a timeless classic, this introduction to the hobbit Bilbo Baggins, the wizard Gandalf, Gollum, and the spectacular world of Middle-earth recounts of the adventures of a reluctant hero, a powerful and dangerous ring, and the cruel dragon Smaug the Magnificent. The text in this 372-page paperback edition is based on that first published in Great Britain by Collins Modern Classics (1998), and includes a note on the text by Douglas A. Anderson (2001).",
                             Genre = "Classics",
-                            Rating = 0m,
                             Title = "The Hobbit, or There and Back Again"
                         },
                         new
@@ -115,7 +113,6 @@ namespace BookReviewWebAppExercsie.Migrations
                             Date = new DateTime(2003, 11, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Full of sympathetic characters, wildly imaginative situations, and countless exciting details, the first installment in the series assembles an unforgettable magical world and sets the stage for many high-stakes adventures to come.",
                             Genre = "Fantasy",
-                            Rating = 0m,
                             Title = "Harry Potter and the Sorcerer's Stone"
                         },
                         new
@@ -125,7 +122,6 @@ namespace BookReviewWebAppExercsie.Migrations
                             Date = new DateTime(2008, 9, 16, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Harriet Vanger, a scion of one of Sweden’s wealthiest families disappeared over forty years ago. All these years later, her aged uncle continues to seek the truth. He hires Mikael Blomkvist, a crusading journalist recently trapped by a libel conviction, to investigate. He is aided by the pierced and tattooed punk prodigy Lisbeth Salander. Together they tap into a vein of unfathomable iniquity and astonishing corruption.",
                             Genre = "Thriller",
-                            Rating = 0m,
                             Title = "The Girl with the Dragon Tattoo"
                         },
                         new
@@ -135,7 +131,6 @@ namespace BookReviewWebAppExercsie.Migrations
                             Date = new DateTime(2014, 4, 22, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "One of the most critically acclaimed suspense writers of our time, New York Times bestseller Gillian Flynn takes that statement to its darkest place in this unputdownable masterpiece about a marriage gone terribly, terribly wrong. The Chicago Tribune proclaimed that her work “draws you in and keeps you reading with the force of a pure but nasty addiction.” Gone Girl’s toxic mix of sharp-edged wit and deliciously chilling prose creates a nerve-fraying thriller that confounds you at every turn.",
                             Genre = "Mystery",
-                            Rating = 0m,
                             Title = "Gone girl"
                         },
                         new
@@ -145,7 +140,6 @@ namespace BookReviewWebAppExercsie.Migrations
                             Date = new DateTime(2020, 9, 29, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Description = "Between life and death there is a library, and within that library, the shelves go on forever. Every book provides a chance to try another life you could have lived. To see how things would be if you had made other choices . . . Would you have done anything different, if you had the chance to undo your regrets?",
                             Genre = "Fantasy",
-                            Rating = 0m,
                             Title = "The Midnight Library"
                         });
                 });
