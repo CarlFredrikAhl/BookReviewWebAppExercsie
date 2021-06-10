@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookReviewWebAppExercsie.Data;
 using BookReviewWebAppExercsie.Models;
+using Microsoft.Data.SqlClient;
 
 namespace BookReviewWebAppExercsie.Controllers
 {

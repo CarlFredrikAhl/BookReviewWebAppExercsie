@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using BookReviewWebAppExercsie.Data;
 using BookReviewWebAppExercsie.Models;
+using Microsoft.Data.SqlClient;
 
 namespace BookReviewWebAppExercsie.Controllers
 {
@@ -41,8 +42,44 @@ namespace BookReviewWebAppExercsie.Controllers
             {
                 return NotFound();
             }
-
+            List<Review> reviews = GetReviews(id);
+            foreach (var review in reviews)
+            {
+                book.Reviews.Add(review);
+            }
             return View(book);
+        }
+
+        public List<Review> GetReviews(int? id)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookReviewContext-08fe1cae-53be-4606-97df-5410f058cc05;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=true");
+            SqlCommand cmd = new SqlCommand($"Select * from Review", con);
+            SqlCommand cmd2 = new SqlCommand($"Select * from Book WHERE BookId = {id}", con);
+            List<Review> reviews = new List<Review>();
+            using (con)
+            {
+                var book = new Book();
+                con.Open();
+                SqlDataReader rdr = cmd.ExecuteReader();
+                SqlDataReader rdr2 = cmd2.ExecuteReader();
+                //while (rdr2.Read())
+                //{
+                //    book.BookId = (int)rdr["BookId"];
+                    
+                //}
+                while (rdr.Read())
+                {
+                    var review = new Review();
+                    review.Book = book;
+                    review.ReviewId = (int)rdr["ReviewId"];
+                    review.BookId = (int)rdr["BookId"];
+                    review.Name = (string)rdr["Name"];
+                    review.TextContent = (string)rdr["TextContent"];
+                    reviews.Add(review);
+                }
+            }
+
+            return reviews;
         }
 
         // GET: Books/Create

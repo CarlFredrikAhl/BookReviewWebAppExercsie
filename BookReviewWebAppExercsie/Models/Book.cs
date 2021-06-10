@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BookReviewWebAppExercsie.Models
@@ -23,5 +24,21 @@ namespace BookReviewWebAppExercsie.Models
         public DateTime Date { get;  set; }
 
         public ICollection<Review> Reviews { get; set; }
+
+        public Book()
+        {
+            this.Reviews = new List<Review>();
+        }
+
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach (var item in this.Reviews)
+            {
+                sb.AppendLine(item.Name);
+                sb.AppendLine(item.TextContent);
+            }
+            return sb.ToString();
+        }
     }
 }
