@@ -48,7 +48,7 @@ namespace BookReviewWebAppExercsie.Controllers
         // GET: Reviews/Create
         public IActionResult Create()
         {
-            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Genre");
+            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace BookReviewWebAppExercsie.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Genre", review.BookId);
+            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", review.BookId);
             return View(review);
         }
 
@@ -82,7 +82,7 @@ namespace BookReviewWebAppExercsie.Controllers
             {
                 return NotFound();
             }
-            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Genre", review.BookId);
+            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", review.BookId);
             return View(review);
         }
 
@@ -118,7 +118,7 @@ namespace BookReviewWebAppExercsie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Genre", review.BookId);
+            ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", review.BookId);
             return View(review);
         }
 
