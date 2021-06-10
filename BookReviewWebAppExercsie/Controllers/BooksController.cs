@@ -22,7 +22,8 @@ namespace BookReviewWebAppExercsie.Controllers
         // GET: Books
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Book.ToListAsync());
+            var bookReviewContext = _context.Book.Include(b => b.Author);
+            return View(await bookReviewContext.ToListAsync());
         }
 
         // GET: Books/Details/5
@@ -34,6 +35,7 @@ namespace BookReviewWebAppExercsie.Controllers
             }
 
             var book = await _context.Book
+                .Include(b => b.Author)
                 .FirstOrDefaultAsync(m => m.BookId == id);
             if (book == null)
             {
@@ -46,6 +48,7 @@ namespace BookReviewWebAppExercsie.Controllers
         // GET: Books/Create
         public IActionResult Create()
         {
+            ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace BookReviewWebAppExercsie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Genre,Author,Date")] Book book)
+        public async Task<IActionResult> Create([Bind("BookId,Title,Genre,AuthorId,Date")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace BookReviewWebAppExercsie.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
             return View(book);
         }
 
@@ -78,6 +82,7 @@ namespace BookReviewWebAppExercsie.Controllers
             {
                 return NotFound();
             }
+            ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
             return View(book);
         }
 
@@ -86,7 +91,7 @@ namespace BookReviewWebAppExercsie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Genre,Author,Date")] Book book)
+        public async Task<IActionResult> Edit(int id, [Bind("BookId,Title,Genre,AuthorId,Date")] Book book)
         {
             if (id != book.BookId)
             {
@@ -113,6 +118,7 @@ namespace BookReviewWebAppExercsie.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["AuthorId"] = new SelectList(_context.Author, "AuthorId", "Name", book.AuthorId);
             return View(book);
         }
 
@@ -125,6 +131,7 @@ namespace BookReviewWebAppExercsie.Controllers
             }
 
             var book = await _context.Book
+                .Include(b => b.Author)
                 .FirstOrDefaultAsync(m => m.BookId == id);
             if (book == null)
             {

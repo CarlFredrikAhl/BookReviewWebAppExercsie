@@ -15,10 +15,9 @@ namespace BookReviewWebAppExercsie.Models
        
         [Required]
         public string Genre { get; set; }
-
+        [Required]
         public int? AuthorId { get; set; }
 
-        [Required]
         public Author Author { get; set; }
 
         [Required]

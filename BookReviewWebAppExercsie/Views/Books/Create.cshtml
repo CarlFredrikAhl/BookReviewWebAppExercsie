@@ -24,8 +24,9 @@
             </div>
             <div class="form-group">
                 <label asp-for="Author" class="control-label"></label>
-                <input asp-for="Author" class="form-control" />
-                <span asp-validation-for="Author" class="text-danger"></span>
+                <select asp-for="AuthorId" class="form-control" asp-items="ViewBag.AuthorId"></select>
+                <a href="@Url.Action("Create", "Authors")" class="btn btn-primary" style="margin-top:5px">Add Author</a>
+                <p>Add author if it's not in the list</p>
             </div>
             <div class="form-group">
                 <label asp-for="Date" class="control-label"></label>

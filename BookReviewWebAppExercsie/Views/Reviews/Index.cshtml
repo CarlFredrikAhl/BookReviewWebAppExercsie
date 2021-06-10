@@ -18,6 +18,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.TextContent)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -29,6 +32,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.TextContent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Book.Genre)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ReviewId">Edit</a> |

@@ -54,7 +54,7 @@ namespace BookReviewWebAppExercsie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name")] Author author)
+        public async Task<IActionResult> Create([Bind("AuthorId,Name")] Author author)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace BookReviewWebAppExercsie.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] Author author)
+        public async Task<IActionResult> Edit(int id, [Bind("AuthorId,Name")] Author author)
         {
             if (id != author.AuthorId)
             {
