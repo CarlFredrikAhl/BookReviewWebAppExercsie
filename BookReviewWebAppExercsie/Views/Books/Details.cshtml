@@ -46,8 +46,11 @@
             @{
                 foreach (var item in Model.Reviews)
                 {
-                        <p>@Html.DisplayFor(modelItem => item.Name)</p>
-                        @Html.DisplayFor(modelItem => item.TextContent)
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Name) <br>
+                            @Html.DisplayFor(modelItem => item.Rating) <br>
+                            @Html.DisplayFor(modelItem => item.TextContent)
+                        </p>
                 }
             }
         </dd>

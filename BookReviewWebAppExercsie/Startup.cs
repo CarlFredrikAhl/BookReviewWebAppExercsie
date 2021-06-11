@@ -10,6 +10,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using BookReviewWebAppExercsie.Data;
+using System.Globalization;
+using Microsoft.AspNetCore.Localization;
 
 namespace BookReviewWebAppExercsie
 {
@@ -46,6 +48,17 @@ namespace BookReviewWebAppExercsie
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+
+            var defaultCulture = new CultureInfo("es-UY");
+            var localizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture),
+                SupportedCultures = new List<CultureInfo> { defaultCulture },
+                SupportedUICultures = new List<CultureInfo> { defaultCulture }
+            };
+            app.UseRequestLocalization(localizationOptions);
+
+            app.UseRequestLocalization("en-UY", "fr-FR");
 
             app.UseRouting();
 

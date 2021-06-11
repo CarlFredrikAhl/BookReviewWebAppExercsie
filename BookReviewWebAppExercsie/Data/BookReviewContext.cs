@@ -118,35 +118,40 @@ namespace BookReviewWebAppExercsie.Data
                 ReviewId = 1,
                 Name = "Inge",
                 TextContent = "Cool Story Bro",
-                BookId = book1.BookId
+                BookId = book1.BookId,
+                Rating = 4
             };
             Review review2 = new Review
             {
                 ReviewId = 2,
                 Name = "Zoe",
-                TextContent = "I will never ever rate this lower than 5 stars. BEAUTIFUL.",
-                BookId = book2.BookId
+                TextContent = "I will never ever rate this lower than 10. BEAUTIFUL.",
+                BookId = book2.BookId,
+                Rating = 10
             };
             Review review3 = new Review
             {
                 ReviewId = 3,
                 Name = "Diane Wallace",
                 TextContent = "Loved it! an interesting,mystery filled and very thrill-seeking storyline..was well written,nice movie also... (paperback!)",
-                BookId = book3.BookId
+                BookId = book3.BookId,
+                Rating = 8M
             };
             Review review4 = new Review
             {
                 ReviewId = 4,
                 Name = "NReads",
                 TextContent = "yo Amy really did THAT",
-                BookId = book4.BookId
+                BookId = book4.BookId,
+                Rating = 9.5M
             };
             Review review5 = new Review
             {
                 ReviewId = 5,
                 Name = "Emily B",
                 TextContent = "This was cute and the concept was great but unfortunately it really lacked some depth for me!",
-                BookId = book5.BookId
+                BookId = book5.BookId,
+                Rating = 6.5M
             };
             modelBuilder.Entity<Review>().HasData(review1);
             modelBuilder.Entity<Review>().HasData(review2);
