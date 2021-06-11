@@ -135,7 +135,7 @@ namespace BookReviewWebAppExercsie.Data
                 Name = "Diane Wallace",
                 TextContent = "Loved it! an interesting,mystery filled and very thrill-seeking storyline..was well written,nice movie also... (paperback!)",
                 BookId = book3.BookId,
-                Rating = 8M
+                Rating = 8
             };
             Review review4 = new Review
             {
@@ -143,7 +143,7 @@ namespace BookReviewWebAppExercsie.Data
                 Name = "NReads",
                 TextContent = "yo Amy really did THAT",
                 BookId = book4.BookId,
-                Rating = 9.5M
+                Rating = 9
             };
             Review review5 = new Review
             {
@@ -151,7 +151,7 @@ namespace BookReviewWebAppExercsie.Data
                 Name = "Emily B",
                 TextContent = "This was cute and the concept was great but unfortunately it really lacked some depth for me!",
                 BookId = book5.BookId,
-                Rating = 6.5M
+                Rating = 6
             };
             modelBuilder.Entity<Review>().HasData(review1);
             modelBuilder.Entity<Review>().HasData(review2);

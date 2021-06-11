@@ -53,7 +53,7 @@ namespace BookReviewWebAppExercsie.Controllers
         public List<Review> GetReviews(int? id)
         {
             SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookReviewContext-08fe1cae-53be-4606-97df-5410f058cc05;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=true");
-            SqlCommand cmd = new SqlCommand($"Select * from Review", con);
+            SqlCommand cmd = new SqlCommand($"Select * from Review WHERE BookId = {id}", con);
             SqlCommand cmd2 = new SqlCommand($"Select * from Book WHERE BookId = {id}", con);
             List<Review> reviews = new List<Review>();
             using (con)
@@ -75,6 +75,7 @@ namespace BookReviewWebAppExercsie.Controllers
                     review.BookId = (int)rdr["BookId"];
                     review.Name = (string)rdr["Name"];
                     review.TextContent = (string)rdr["TextContent"];
+                    review.Rating = (decimal)rdr["Rating"];
                     reviews.Add(review);
                 }
             }

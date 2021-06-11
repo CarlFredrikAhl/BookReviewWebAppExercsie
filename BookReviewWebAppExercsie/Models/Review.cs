@@ -19,6 +19,6 @@ namespace BookReviewWebAppExercsie.Models
         public Book Book { get; set; }
 
         [Required, Range(0.0, 10.0), Column(TypeName = "decimal(18, 1)")]
-        public Decimal Rating { get; set; }
+        public decimal Rating { get; set; }
     }
 }
