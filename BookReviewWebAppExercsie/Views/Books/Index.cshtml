@@ -46,7 +46,9 @@
                 @Html.DisplayFor(modelItem => item.Date)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Reviews)
+
+                @Html.DisplayFor(modelItem => item.AverageRating)/10 | 
+                @Html.DisplayFor(modelItem => item.AmountOfReviewsDisplay) Review(s)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.BookId">Edit</a> |

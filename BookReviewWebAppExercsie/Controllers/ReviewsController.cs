@@ -64,7 +64,7 @@ namespace BookReviewWebAppExercsie.Controllers
             {
                 _context.Add(review);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return Redirect("~/Books");
             }
             ViewData["BookId"] = new SelectList(_context.Book, "BookId", "Title", review.BookId);
             return View(review);

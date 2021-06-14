@@ -50,6 +50,7 @@ namespace BookReviewWebAppExercsie.Controllers
             return View(book);
         }
 
+
         public List<Review> GetReviews(int? id)
         {
             SqlConnection con = new SqlConnection(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=BookReviewContext-08fe1cae-53be-4606-97df-5410f058cc05;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False;MultipleActiveResultSets=true");
